@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+#define MAXLEN 9
+
+
+
+
+int main()
+{
+    const char conversion_table[10][7]={
+        {'-','|','|',' ','|','|','-'} ,       //for 0
+        {' ',' ','|',' ',' ','|',' '} ,      //for 1
+        {'-',' ','|','-','|',' ','-'},       //for 2
+        {'-',' ','|','-',' ','|','-'},       //for 3
+        {' ','|','|','-',' ','|',' '},       //for 4
+        {'-','|',' ','-',' ','|','-'},       //for 5
+        {'-','|',' ','-','|','|','-'},       //for 6
+        {'-',' ','|',' ',' ','|',' '},       //for 7
+        {'-','|','|','-','|','|','-'},       //for 8
+        {'-','|','|','-',' ','|','-'}        //for 9
+        
+        
+        };
+    int i,j,pos,width,s,digit,index=0;
+    bool row_present,col_present;
+    char number[MAXLEN];
+    while (1)
+    {
+        scanf("%d",&s);
+        scanf("%s",&number);
+        width=(s+3)*strlen(number);
+        
+        
+        for (i=0;i<(2*s)+3;i++)
+        {
+            row_present=(i==0 || i==(s+1) || i==(2*s + 2) );
+            if (row_present)
+            {
+                for (j=0;j<width;j++)
+                {   
+                    pos=j%(s+3);
+                    col_present=(pos!=0 && pos!=(s+1) && pos!=(s+2));
+                    if (col_present)
+                    {
+                        digit =(int)number[(j)/(s+3)];
+                        digit-=48;
+                        putchar(conversion_table[digit][index]);
+                    }
+                    else 
+                        putchar(' ');  
+                }
+                cout<<endl;
+                index++;
+                
+            }
+            else 
+            {
+                for (j=0;j<width;j++)
+                {
+                    pos=j%(s+3);
+                    col_present=(pos==0 || pos==(s+1));
+                    if (col_present)
+                    {
+                        digit =(int)number[(j)/(s+3)];
+                        digit-=48;  
+                        putchar(conversion_table[digit][index]);
+                        
+                        
+                
+            
+
+    }
+    getch();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+}
+           
+        
+        
+     
+        
+            
